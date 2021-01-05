@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.ssafy.happyhouse.dao.Myareadao">
+
+ 	<select id="showall" resultType="myarea" parameterType="myarea">
+ 		select * 
+ 		from interest_area
+ 		where id =#{id}
+ 	</select>
+
+	<insert id="registarea" parameterType="myarea">
+		insert into interest_area(id
+						,si
+						,gu
+						,dong
+						,dongcode
+					)                   
+		values(			 #{id}
+						,#{si}
+						,#{gu}
+						,#{dong}
+						,#{dongcode}
+					)
+	</insert>
+</mapper>

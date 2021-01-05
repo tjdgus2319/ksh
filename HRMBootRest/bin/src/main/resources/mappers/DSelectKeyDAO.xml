@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ssafy.happyhouse.dao.DSelectKeyDAO"> <!-- mybatis는 namespace필수!! -->
+
+	<select id='makeSearchList' resultType='HouseInfo' parameterType="String">
+		SELECT DISTINCT AptName FROM housedeal
+		WHERE AptName like #{searchWordFromAjax}%
+		ORDER BY AptName 
+		limit 0, 10
+	</select>
+	
+</mapper>
+
+
+
+
+
+

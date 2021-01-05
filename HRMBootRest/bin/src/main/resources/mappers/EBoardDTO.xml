@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.ssafy.happyhouse.dao.BoardDAO"> <!-- mybatis는 namespace필수!! -->
+	<insert id='brdRegist' parameterType='EBoardDTO'>
+		insert into notice(id
+						,subject
+						,content
+						,regtime
+					)                   
+		values(			 #{id}
+						,#{subject}
+						,#{content}
+						,now()
+					)
+	</insert>
+	<update id="brdModify" parameterType='EBoardDTO'>
+		update notice set subject = #{subject}
+						,content = #{content}
+		where articleno = #{articleno}
+	</update>
+		
+	<delete id="brdDelete" parameterType="string">
+		delete from notice
+		where articleno = #{articleno}
+	</delete>
+	
+	<select id='brdDetail' resultType='EBoardDTO' parameterType='String'>
+			SELECT articleno,id,subject,content,regtime 
+			FROM notice
+			where articleno= #{articleno}
+	</select>
+	
+	<select id='brdList' resultType='EBoardDTO'>
+		select * from notice 
+		ORDER BY articleno desc
+		limit 0, 15
+	</select>
+	
+</mapper>
+
+
+
+
+
+

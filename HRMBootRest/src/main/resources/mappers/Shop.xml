@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.ssafy.happyhouse.dao.ShopDao">
+
+ 	<select id="ShopList" resultType="Shop" parameterType="Houseinfo">
+ 		select shopname,codename1,address from shopinfo
+ 		where gucode=#{code} and dong=TRIM(#{dong}) order by codename1
+ 		
+ 	</select>
+
+</mapper>
